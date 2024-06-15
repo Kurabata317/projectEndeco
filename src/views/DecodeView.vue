@@ -8,7 +8,7 @@
         <button :disabled="text === '' || base64ToUtf8(text) === '올바른 문자열이 아닙니다.'" @click="copyToClipboard">
             결과 복사
         </button>
-        <button :disabled="!isValidURL(base64ToUtf8(text))" @click="navigateToURL">
+        <button :disabled="!isValidURL(base64ToUtf8(text))" @click="navigateToURL(base64ToUtf8(text))">
             링크로 이동
         </button>
     </div>
@@ -42,9 +42,9 @@ export default {
 
             return urlPattern.test(url);
         },
-        navigateToURL() {
+        navigateToURL(urlInput) {
             // 실제 URL로 이동하거나 원하는 작업을 수행하는 메서드
-            window.location.href = this.urlInput;
+            window.location.href = urlInput;
         },
         async pasteClipboard() {
             try {
