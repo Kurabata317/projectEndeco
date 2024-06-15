@@ -8,7 +8,7 @@
         <button :disabled="text === '' || base64ToUtf8(text) === '올바른 문자열이 아닙니다.'" @click="copyToClipboard">
             결과 복사
         </button>
-        <button :disabled="!isValidURL(base64ToUtf8(text))">
+        <button :disabled="!isValidURL(base64ToUtf8(text))" @click="navigateToURL">
             링크로 이동
         </button>
     </div>
